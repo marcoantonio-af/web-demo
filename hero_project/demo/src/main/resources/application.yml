@@ -1,0 +1,41 @@
+server:
+  port: 8083
+  http2:
+    enabled: true
+
+spring:
+    datasource:
+        name: test
+        url: jdbc:mysql://localhost:3306/test
+        username: root
+        password: 123456
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+    servlet:
+      multipart:
+        enabled: true
+        maxFileSize: 20MB
+        maxRequestSize: 100MB
+    profiles:
+      active: security
+
+mybatis:
+    mapper-locations: classpath:mapper/demo/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+    type-aliases-package: com.example.demo.data  # 注意：对应实体类的路径
+
+## 该配置节点为独立的节点，有很多同学容易将这个配置放在spring的节点下，导致配置无法被识别
+
+
+

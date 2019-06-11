@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    initialSize: 5
+    minIdle: 5
+    maxActive: 10
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    testConnectionOnCheckout: false
+    poolPreparedStatements: true
+

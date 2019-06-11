@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div  class="impo_div" align="center" style="position:absolute;right:80px;top:5px; border:4px solid #bbebff;z-index: 999;">
+    <form action="/uploadFiles.do" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" id="file"  accept=".xls,.csv,.xlsx"  multiple="true" style="width:1000px;height:55px;border:none;color: #52bde6">
+        <input type="submit" value="导入报表"  style="background-color: rgba(171,243,255,0.21); width:120px;height:30px;border:none;color: #52bde6" >
+    </form>
+    <button style="background-color: rgba(73,255,104,0.21); width:120px;height:30px;border:none;color: #57e6a0" onclick="outExcelTemplate();"><span class="ace-icon fa fa-download"></span>下载模板</button>
+</div>
+
+
+
+
+</body>
+</html>
