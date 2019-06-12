@@ -31,7 +31,7 @@ public class DynamicDataSourceAspect {
     @After("createDataSource()")
     public void doAfter(){
         DataSourceContextHolder.clearDB();
-        DynamicDataSourceOfDruid.closeConnection();
+//        DynamicDataSourceOfDruid.closeConnection();
     }
 
 }

@@ -17,17 +17,23 @@ import javax.sql.DataSource;
  */
 @Configuration
 
-@MapperScan(basePackages = "com.example.dynamicdatasource", sqlSessionFactoryRef = "sqlSessionFactory")
+@MapperScan(basePackages = "com.example.dynamicdatasource.dao", sqlSessionFactoryRef = "sqlSessionFactory")
 public class DataSourceConfig {
 
     /**
      * 构建自定义的动态数据源DataSource
      * @return
      */
+//    @Bean(name = "dynamicDataSource")
+////    @ConfigurationProperties(prefix = "spring.datasource")
+//    public DataSource dataSource(){
+//        return new DynamicDataSourceOfDruid();
+//    }
+
+
     @Bean(name = "dynamicDataSource")
-//    @ConfigurationProperties(prefix = "spring.datasource")
-    public DataSource dataSource(){
-        return new DynamicDataSourceOfDruid();
+    public Ds2DynamicDataSource dataSource(){
+        return Ds2DynamicDataSource.getInstance();
     }
 
     /**
