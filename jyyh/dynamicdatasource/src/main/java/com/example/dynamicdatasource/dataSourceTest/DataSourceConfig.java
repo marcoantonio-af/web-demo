@@ -12,11 +12,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import javax.sql.DataSource;
 
 
-/**
- * Created by meridian on 2018/9/26.
- */
 @Configuration
-
 @MapperScan(basePackages = "com.example.dynamicdatasource.dao", sqlSessionFactoryRef = "sqlSessionFactory")
 public class DataSourceConfig {
 

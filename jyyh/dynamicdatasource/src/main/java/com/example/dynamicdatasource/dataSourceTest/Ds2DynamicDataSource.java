@@ -1,12 +1,5 @@
 package com.example.dynamicdatasource.dataSourceTest;
 
-/**
- * @author zj
- * @version 1.0
- * @description TODO
- * @create 2019/6/11 18:00
- **/
-
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
@@ -16,10 +9,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 动态数据源
- *
- * @author kevinliu
- */
+ * @author zj
+ * @version 1.0
+ * @description 动态数据源
+ * @create 2019/6/11 18:00
+ **/
 @PropertySource({"classpath:application.properties"})
 public class Ds2DynamicDataSource extends AbstractRoutingDataSource {
     private static Ds2DynamicDataSource instance;
@@ -30,21 +24,28 @@ public class Ds2DynamicDataSource extends AbstractRoutingDataSource {
 
 
     public Ds2DynamicDataSource() {
+        Map<Object,Object> dataSourceMap=new HashMap<Object, Object>();
 
-        // TODO: 提出来
-        Map<Object, Object> dataSourceMap = new HashMap<Object, Object>();
         DruidDataSource wdataSource = new DruidDataSource();
         wdataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        wdataSource.setUrl("jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8");
+        wdataSource.setUrl("jdbc:mysql://127.0.0.1:3306/miaosha?useUnicode=true&characterEncoding=utf8");
         wdataSource.setUsername("root");
         wdataSource.setPassword("123456");
-
-        //连接池配置
         wdataSource.setMaxActive(5);
         wdataSource.setMinIdle(5);
         wdataSource.setInitialSize(5);
+        dataSourceMap.put("miaosha", wdataSource);
 
-        dataSourceMap.put("1", wdataSource);
+        DruidDataSource wdataSource1 = new DruidDataSource();
+        wdataSource1.setDriverClassName("com.mysql.jdbc.Driver");
+        wdataSource1.setUrl("jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8");
+        wdataSource1.setUsername("root");
+        wdataSource1.setPassword("123456");
+        wdataSource1.setMaxActive(5);
+        wdataSource1.setMinIdle(5);
+        wdataSource1.setInitialSize(5);
+        dataSourceMap.put("test", wdataSource1);
+
         this.setTargetDataSources(dataSourceMap);
     }
 
