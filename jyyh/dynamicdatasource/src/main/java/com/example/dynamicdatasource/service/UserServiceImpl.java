@@ -24,5 +24,10 @@ public class UserServiceImpl implements UserService {
         userDOMapper.deleteByPrimaryKey(1);
     }
 
+    @Override
+    public UserDO query(Integer id) {
+        return userDOMapper.selectByPrimaryKey(id);
+    }
+
 
 }

@@ -6,4 +6,5 @@ public interface UserService {
 
     void add(UserDO userModel);
 
+    UserDO query(Integer id);
 }
