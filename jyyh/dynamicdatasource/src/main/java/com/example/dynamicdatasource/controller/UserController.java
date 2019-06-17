@@ -1,7 +1,7 @@
 package com.example.dynamicdatasource.controller;
 
 import com.example.dynamicdatasource.dataSourceTest.DataSourceContextHolder;
-import com.example.dynamicdatasource.dataobject.UserDO;
+import com.example.dynamicdatasource.empty.UserDO;
 import com.example.dynamicdatasource.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

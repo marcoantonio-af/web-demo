@@ -1,4 +1,4 @@
-package com.example.dynamicdatasource.dataobject;
+package com.example.dynamicdatasource.empty;
 
 public class UserDO {
     private Integer id;

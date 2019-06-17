@@ -1,11 +1,9 @@
 package com.example.dynamicdatasource.service;
 
 import com.example.dynamicdatasource.dao.UserDOMapper;
-import com.example.dynamicdatasource.dataSourceTest.DataSourceContextHolder;
-import com.example.dynamicdatasource.dataobject.UserDO;
+import com.example.dynamicdatasource.empty.UserDO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 
 //@Transactional

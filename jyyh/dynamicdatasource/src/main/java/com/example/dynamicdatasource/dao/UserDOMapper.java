@@ -1,6 +1,6 @@
 package com.example.dynamicdatasource.dao;
 
-import com.example.dynamicdatasource.dataobject.UserDO;
+import com.example.dynamicdatasource.empty.UserDO;
 
 public interface UserDOMapper {
     int deleteByPrimaryKey(Integer id);
