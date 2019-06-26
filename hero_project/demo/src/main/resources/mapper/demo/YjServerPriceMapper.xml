@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.YjServerPriceMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.data.YjServerPrice" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="Supp_ID" property="suppId" jdbcType="INTEGER" />
+    <result column="Product_ID" property="productId" jdbcType="INTEGER" />
+    <result column="region_id" property="regionId" jdbcType="INTEGER" />
+    <result column="CPU" property="cpu" jdbcType="INTEGER" />
+    <result column="Memory" property="memory" jdbcType="INTEGER" />
+    <result column="standard" property="standard" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="create_id" property="createId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_id" property="updateId" jdbcType="INTEGER" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, Supp_ID, Product_ID, region_id, CPU, Memory, standard, price, create_id, create_time, 
+    update_id, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from yj_server_price
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from yj_server_price
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.data.YjServerPrice" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into yj_server_price (id, Supp_ID, Product_ID, 
+      region_id, CPU, Memory, 
+      standard, price, create_id, 
+      create_time, update_id, update_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{suppId,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, 
+      #{regionId,jdbcType=INTEGER}, #{cpu,jdbcType=INTEGER}, #{memory,jdbcType=INTEGER}, 
+      #{standard,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{createId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.data.YjServerPrice" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into yj_server_price
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="suppId != null" >
+        Supp_ID,
+      </if>
+      <if test="productId != null" >
+        Product_ID,
+      </if>
+      <if test="regionId != null" >
+        region_id,
+      </if>
+      <if test="cpu != null" >
+        CPU,
+      </if>
+      <if test="memory != null" >
+        Memory,
+      </if>
+      <if test="standard != null" >
+        standard,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="createId != null" >
+        create_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateId != null" >
+        update_id,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="suppId != null" >
+        #{suppId,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="regionId != null" >
+        #{regionId,jdbcType=INTEGER},
+      </if>
+      <if test="cpu != null" >
+        #{cpu,jdbcType=INTEGER},
+      </if>
+      <if test="memory != null" >
+        #{memory,jdbcType=INTEGER},
+      </if>
+      <if test="standard != null" >
+        #{standard,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="createId != null" >
+        #{createId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateId != null" >
+        #{updateId,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.data.YjServerPrice" >
+    update yj_server_price
+    <set >
+      <if test="suppId != null" >
+        Supp_ID = #{suppId,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        Product_ID = #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="regionId != null" >
+        region_id = #{regionId,jdbcType=INTEGER},
+      </if>
+      <if test="cpu != null" >
+        CPU = #{cpu,jdbcType=INTEGER},
+      </if>
+      <if test="memory != null" >
+        Memory = #{memory,jdbcType=INTEGER},
+      </if>
+      <if test="standard != null" >
+        standard = #{standard,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="createId != null" >
+        create_id = #{createId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateId != null" >
+        update_id = #{updateId,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.data.YjServerPrice" >
+    update yj_server_price
+    set Supp_ID = #{suppId,jdbcType=INTEGER},
+      Product_ID = #{productId,jdbcType=INTEGER},
+      region_id = #{regionId,jdbcType=INTEGER},
+      CPU = #{cpu,jdbcType=INTEGER},
+      Memory = #{memory,jdbcType=INTEGER},
+      standard = #{standard,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      create_id = #{createId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_id = #{updateId,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
